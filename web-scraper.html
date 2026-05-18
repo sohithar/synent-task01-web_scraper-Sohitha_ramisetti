@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraper Project - Data Extraction with Python</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="web-scraper.css">
+</head>
+<body>
+    <!-- ==================== PAGE LOADER ==================== -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-container">
+            <div class="loader-circle"></div>
+            <p class="loader-text">Scraping the web...</p>
+        </div>
+    </div>
+
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <i class="fas fa-spider"></i>
+                <span>WebScraper</span>
+            </div>
+            
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#technologies" class="nav-link">Tech Stack</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#workflow" class="nav-link">Workflow</a></li>
+                <li><a href="#output" class="nav-link">Output</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <!-- Hamburger Menu -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <!-- Animated Background -->
+            <div class="background-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="typing-text" id="typingText">WEB SCRAPER PROJECT</span>
+                </h1>
+                
+                <p class="hero-subtitle">Data Extraction using <span class="highlight">Python</span></p>
+                
+                <p class="hero-description">
+                    Extract valuable data from websites effortlessly with BeautifulSoup and Requests. 
+                    Convert raw web content into structured CSV and JSON formats.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">
+                        Explore Project
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-secondary">
+                        Learn More
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Floating Icons -->
+            <div class="floating-icons">
+                <div class="float-icon" style="--delay: 0s;"><i class="fab fa-python"></i></div>
+                <div class="float-icon" style="--delay: 0.5s;"><i class="fas fa-database"></i></div>
+                <div class="float-icon" style="--delay: 1s;"><i class="fas fa-code"></i></div>
+                <div class="float-icon" style="--delay: 1.5s;"><i class="fas fa-globe"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Web Scraping</h2>
+                <p>Understanding data extraction</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-card glass">
+                    <div class="card-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>What is Web Scraping?</h3>
+                    <p>
+                        Web scraping is an automated technique to extract data from websites. 
+                        It helps developers and businesses gather information from multiple sources 
+                        efficiently and convert it into structured formats for analysis.
+                    </p>
+                </div>
+                
+                <div class="about-card glass">
+                    <div class="card-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Importance</h3>
+                    <p>
+                        Data extraction enables price comparison, market research, content aggregation, 
+                        and competitive analysis. It saves time and resources while providing valuable insights 
+                        for decision-making.
+                    </p>
+                </div>
+                
+                <div class="about-card glass">
+                    <div class="card-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>How It Works</h3>
+                    <p>
+                        BeautifulSoup parses HTML/XML documents, while Requests fetches web pages. 
+                        Together, they enable efficient extraction of specific data elements 
+                        from complex web structures.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TECHNOLOGIES SECTION ==================== -->
+    <section class="technologies" id="technologies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tech Stack</h2>
+                <p>Tools and libraries we use</p>
+            </div>
+            
+            <div class="tech-grid">
+                <!-- Python -->
+                <div class="tech-card glass">
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Python</h3>
+                    <p>High-level programming language</p>
+                    <div class="tech-badge">Programming</div>
+                </div>
+                
+                <!-- BeautifulSoup -->
+                <div class="tech-card glass">
+                    <div class="tech-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>BeautifulSoup</h3>
+                    <p>HTML/XML parsing library</p>
+                    <div class="tech-badge">Parsing</div>
+                </div>
+                
+                <!-- Requests -->
+                <div class="tech-card glass">
+                    <div class="tech-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Requests</h3>
+                    <p>HTTP library for Python</p>
+                    <div class="tech-badge">HTTP</div>
+                </div>
+                
+                <!-- CSV -->
+                <div class="tech-card glass">
+                    <div class="tech-icon">
+                        <i class="fas fa-file-csv"></i>
+                    </div>
+                    <h3>CSV</h3>
+                    <p>Comma-separated values format</p>
+                    <div class="tech-badge">Format</div>
+                </div>
+                
+                <!-- JSON -->
+                <div class="tech-card glass">
+                    <div class="tech-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <h3>JSON</h3>
+                    <p>JavaScript Object Notation</p>
+                    <div class="tech-badge">Format</div>
+                </div>
+                
+                <!-- Data Analysis -->
+                <div class="tech-card glass">
+                    <div class="tech-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Pandas</h3>
+                    <p>Data manipulation library</p>
+                    <div class="tech-badge">Analysis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES SECTION ==================== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Features</h2>
+                <p>What makes our scraper powerful</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card glass">
+                    <div class="feature-number">01</div>
+                    <i class="fas fa-heading"></i>
+                    <h3>Website Titles</h3>
+                    <p>Extract headings and titles from any website with precision</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card glass">
+                    <div class="feature-number">02</div>
+                    <i class="fas fa-tag"></i>
+                    <h3>Price Extraction</h3>
+                    <p>Automatically capture product prices and details</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card glass">
+                    <div class="feature-number">03</div>
+                    <i class="fas fa-file-csv"></i>
+                    <h3>CSV Export</h3>
+                    <p>Store extracted data in CSV format for spreadsheets</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card glass">
+                    <div class="feature-number">04</div>
+                    <i class="fas fa-file-code"></i>
+                    <h3>JSON Export</h3>
+                    <p>Export data as JSON for web applications</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card glass">
+                    <div class="feature-number">05</div>
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Structured Data</h3>
+                    <p>Organize data in hierarchical and structured formats</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card glass">
+                    <div class="feature-number">06</div>
+                    <i class="fas fa-rocket"></i>
+                    <h3>High Speed</h3>
+                    <p>Fast and efficient scraping with optimized performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WORKFLOW SECTION ==================== -->
+    <section class="workflow" id="workflow">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Step-by-step process</p>
+            </div>
+            
+            <div class="workflow-container">
+                <!-- Step 1 -->
+                <div class="workflow-step">
+                    <div class="step-circle">
+                        <span class="step-number">1</span>
+                    </div>
+                    <div class="step-content glass">
+                        <h3>Send Request</h3>
+                        <p>Send HTTP request to target website using Requests library</p>
+                        <div class="code-snippet">
+                            <code>response = requests.get(url)</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Arrow -->
+                <div class="workflow-arrow">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="workflow-step">
+                    <div class="step-circle">
+                        <span class="step-number">2</span>
+                    </div>
+                    <div class="step-content glass">
+                        <h3>Fetch HTML</h3>
+                        <p>Retrieve complete HTML content from the response</p>
+                        <div class="code-snippet">
+                            <code>html_content = response.content</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Arrow -->
+                <div class="workflow-arrow">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="workflow-step">
+                    <div class="step-circle">
+                        <span class="step-number">3</span>
+                    </div>
+                    <div class="step-content glass">
+                        <h3>Parse HTML</h3>
+                        <p>Parse HTML using BeautifulSoup for easy navigation</p>
+                        <div class="code-snippet">
+                            <code>soup = BeautifulSoup(html_content, 'html.parser')</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Arrow -->
+                <div class="workflow-arrow">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="workflow-step">
+                    <div class="step-circle">
+                        <span class="step-number">4</span>
+                    </div>
+                    <div class="step-content glass">
+                        <h3>Extract Data</h3>
+                        <p>Select and extract specific data using CSS selectors</p>
+                        <div class="code-snippet">
+                            <code>data = soup.select('div.product')</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Arrow -->
+                <div class="workflow-arrow">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="workflow-step">
+                    <div class="step-circle">
+                        <span class="step-number">5</span>
+                    </div>
+                    <div class="step-content glass">
+                        <h3>Save Data</h3>
+                        <p>Export extracted data to CSV or JSON format</p>
+                        <div class="code-snippet">
+                            <code>df.to_csv('data.csv')</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OUTPUT PREVIEW SECTION ==================== -->
+    <section class="output" id="output">
+        <div class="container">
+            <div class="section-header">
+                <h2>Output Preview</h2>
+                <p>Sample scraped data formats</p>
+            </div>
+            
+            <div class="output-content">
+                <!-- CSV Preview -->
+                <div class="output-box glass">
+                    <div class="output-header">
+                        <i class="fas fa-file-csv"></i>
+                        <h3>CSV Format</h3>
+                    </div>
+                    <div class="output-data">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Laptop</td>
+                                    <td>$999.99</td>
+                                    <td>4.5/5</td>
+                                </tr>
+                                <tr>
+                                    <td>Monitor</td>
+                                    <td>$299.99</td>
+                                    <td>4.2/5</td>
+                                </tr>
+                                <tr>
+                                    <td>Keyboard</td>
+                                    <td>$79.99</td>
+                                    <td>4.8/5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- JSON Preview -->
+                <div class="output-box glass">
+                    <div class="output-header">
+                        <i class="fas fa-file-code"></i>
+                        <h3>JSON Format</h3>
+                    </div>
+                    <div class="output-data json-format">
+                        <pre><code>{
+  "products": [
+    {
+      "name": "Laptop",
+      "price": "$999.99",
+      "rating": "4.5/5"
+    },
+    {
+      "name": "Monitor",
+      "price": "$299.99",
+      "rating": "4.2/5"
+    }
+  ]
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STATISTICS SECTION ==================== -->
+    <section class="statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glass">
+                    <div class="stat-number">10K+</div>
+                    <p>Websites Scraped</p>
+                </div>
+                
+                <div class="stat-card glass">
+                    <div class="stat-number">1M+</div>
+                    <p>Data Records</p>
+                </div>
+                
+                <div class="stat-card glass">
+                    <div class="stat-number">99.9%</div>
+                    <p>Accuracy Rate</p>
+                </div>
+                
+                <div class="stat-card glass">
+                    <div class="stat-number">24/7</div>
+                    <p>Active Scraping</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Connect with us</p>
+            </div>
+            
+            <div class="contact-content">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-item glass">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>info@webscraper.com</p>
+                    </div>
+                    
+                    <div class="info-item glass">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Location</h4>
+                        <p>San Francisco, USA</p>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="#" class="social-icon glass">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon glass">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-icon glass">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon glass">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Web Scraper Project</h4>
+                    <p>Extract and analyze web data efficiently with our powerful scraping tools.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#workflow">Workflow</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Web Scraper Project. All rights reserved. | Made with <i class="fas fa-heart"></i> by developers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="web-scraper.js"></script>
+</body>
+</html>

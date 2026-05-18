@@ -1,0 +1,1161 @@
+/* ============================================
+   MODERN WEBSITE UI - STYLESHEET
+   ============================================
+   
+   This stylesheet creates a modern, attractive UI with:
+   - Glassmorphism effects
+   - Smooth animations and transitions
+   - Gradient backgrounds
+   - Mobile-responsive design
+   - Professional typography
+   
+   ============================================ */
+
+/* ==================== CSS VARIABLES ==================== */
+/* Define reusable colors and values for easy customization */
+:root {
+    /* Primary colors */
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #f093fb;
+    
+    /* Neutral colors (light theme) */
+    --bg-light: #ffffff;
+    --bg-light-secondary: #f8f9ff;
+    --text-light: #2d3748;
+    --text-light-secondary: #718096;
+    --border-light: #e2e8f0;
+    
+    /* Neutral colors (dark theme) */
+    --bg-dark: #1a202c;
+    --bg-dark-secondary: #2d3748;
+    --text-dark: #f7fafc;
+    --text-dark-secondary: #cbd5e0;
+    --border-dark: #4a5568;
+    
+    /* Active colors (will be set by JavaScript based on theme) */
+    --bg-primary: var(--bg-light);
+    --bg-secondary: var(--bg-light-secondary);
+    --text-primary: var(--text-light);
+    --text-secondary: var(--text-light-secondary);
+    --border-primary: var(--border-light);
+    
+    /* Spacing values */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Border radius for modern rounded corners */
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    
+    /* Shadow for depth */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+    
+    /* Transition timing for smooth animations */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== DARK MODE VARIABLES ==================== */
+/* Override colors when dark mode is active */
+body.dark-mode {
+    --bg-primary: var(--bg-dark);
+    --bg-secondary: var(--bg-dark-secondary);
+    --text-primary: var(--text-dark);
+    --text-secondary: var(--text-dark-secondary);
+    --border-primary: var(--border-dark);
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+/* Reset and base styling for all elements */
+
+* {
+    /* Remove default margin and padding */
+    margin: 0;
+    padding: 0;
+    /* Include padding/border in width/height calculations */
+    box-sizing: border-box;
+}
+
+html {
+    /* Enable smooth scrolling for internal links */
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Font family using modern Poppins from Google Fonts */
+    font-family: 'Poppins', sans-serif;
+    /* Text color based on theme */
+    color: var(--text-primary);
+    /* Background color based on theme */
+    background-color: var(--bg-primary);
+    /* Smooth transition when switching themes */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Line height for readability */
+    line-height: 1.6;
+}
+
+/* ==================== CONTAINER ==================== */
+/* Max-width container for consistent spacing */
+.container {
+    /* Maximum width for large screens */
+    max-width: 1200px;
+    /* Center container */
+    margin: 0 auto;
+    /* Padding on sides */
+    padding: 0 var(--spacing-lg);
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+    /* Consistent font weight */
+    font-weight: 600;
+    /* Margin below headings */
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Section titles */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    /* Gradient text effect */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Section subtitles */
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* ==================== BUTTONS ==================== */
+/* Button base styling */
+.btn {
+    /* Padding for comfortable clicking */
+    padding: 0.875rem 2rem;
+    /* Border radius for modern look */
+    border-radius: var(--radius-md);
+    /* Remove default border */
+    border: none;
+    /* Cursor pointer on hover */
+    cursor: pointer;
+    /* Font settings */
+    font-size: 1rem;
+    font-weight: 600;
+    /* Smooth transitions */
+    transition: var(--transition);
+    /* Display inline-block for alignment */
+    display: inline-block;
+    /* Text decoration */
+    text-decoration: none;
+    /* Center text */
+    text-align: center;
+}
+
+/* Primary button style */
+.btn-primary {
+    /* Background gradient */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Text color */
+    color: white;
+}
+
+/* Primary button hover effect */
+.btn-primary:hover {
+    /* Scale up slightly */
+    transform: translateY(-3px);
+    /* Add shadow on hover */
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Secondary button style */
+.btn-secondary {
+    /* Transparent background with border */
+    background: transparent;
+    /* Border styling */
+    border: 2px solid var(--primary-color);
+    /* Text color matches border */
+    color: var(--primary-color);
+}
+
+/* Secondary button hover effect */
+.btn-secondary:hover {
+    /* Fill background on hover */
+    background: var(--primary-color);
+    /* Change text to white */
+    color: white;
+    /* Scale effect */
+    transform: translateY(-3px);
+}
+
+/* ==================== NAVBAR SECTION ==================== */
+/* Navigation bar styling */
+.navbar {
+    /* Fixed position at top */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Glassmorphism effect - semi-transparent background */
+    background: rgba(255, 255, 255, 0.7);
+    /* Blur effect for glassmorphism */
+    backdrop-filter: blur(10px);
+    /* Border at bottom */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Stack above other elements */
+    z-index: 1000;
+    /* Smooth transition */
+    transition: var(--transition);
+}
+
+/* Dark mode navbar */
+body.dark-mode .navbar {
+    background: rgba(26, 32, 44, 0.7);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Navbar container for flex layout */
+.navbar-container {
+    /* Container settings */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem var(--spacing-lg);
+    /* Flex layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar logo/brand */
+.navbar-logo {
+    /* Font size and weight */
+    font-size: 1.5rem;
+    font-weight: 700;
+    /* Flex for icon and text */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    /* Cursor pointer */
+    cursor: pointer;
+    /* Gradient text */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Navigation menu list */
+.nav-menu {
+    /* Remove list styling */
+    list-style: none;
+    /* Flex layout for horizontal menu */
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+/* Navigation links */
+.nav-link {
+    /* Text decoration */
+    text-decoration: none;
+    /* Color */
+    color: var(--text-primary);
+    /* Font weight */
+    font-weight: 500;
+    /* Smooth transition */
+    transition: var(--transition);
+    /* Relative position for underline effect */
+    position: relative;
+}
+
+/* Navigation link hover effect */
+.nav-link:hover {
+    /* Change color on hover */
+    color: var(--primary-color);
+}
+
+/* Underline effect on hover */
+.nav-link::after {
+    /* Create underline element */
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+/* Show underline on hover */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    /* Button styling */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+/* Theme toggle hover */
+.theme-toggle:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+
+/* ==================== HERO SECTION ==================== */
+/* Main hero banner section */
+.hero {
+    /* Full viewport height minus navbar */
+    min-height: 100vh;
+    /* Padding for spacing */
+    padding: 120px 0 80px;
+    /* Gradient background */
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    /* Flex for centering content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Relative position for floating elements */
+    position: relative;
+    /* Overflow hidden to contain animations */
+    overflow: hidden;
+}
+
+/* Hero content wrapper */
+.hero-content {
+    /* Center the content */
+    text-align: center;
+    /* Z-index to appear above floating elements */
+    position: relative;
+    z-index: 2;
+    /* Animation on page load */
+    animation: fadeInUp 0.8s ease;
+}
+
+/* Hero title */
+.hero-title {
+    /* Large font size */
+    font-size: 3.5rem;
+    /* Font weight */
+    font-weight: 800;
+    /* Margin bottom */
+    margin-bottom: var(--spacing-lg);
+    /* Gradient text */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Line height */
+    line-height: 1.2;
+}
+
+/* Hero subtitle */
+.hero-subtitle {
+    /* Font size */
+    font-size: 1.3rem;
+    /* Color */
+    color: var(--text-secondary);
+    /* Margin bottom */
+    margin-bottom: var(--spacing-xl);
+    /* Max width for readability */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero buttons container */
+.hero-buttons {
+    /* Flex layout */
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    /* Flex wrap for mobile */
+    flex-wrap: wrap;
+}
+
+/* Floating decorative elements */
+.floating-element {
+    /* Absolute position */
+    position: absolute;
+    /* Border radius for circles */
+    border-radius: 50%;
+    /* Gradient backgrounds */
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+    /* Animation */
+    animation: float 6s ease-in-out infinite;
+    /* Z-index behind content */
+    z-index: 1;
+}
+
+/* Different sizes and positions for floating elements */
+.element-1 {
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.element-2 {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.element-3 {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+/* ==================== FEATURES SECTION ==================== */
+/* Features section styling */
+.features {
+    /* Padding */
+    padding: var(--spacing-xl) 0;
+    /* Background */
+    background-color: var(--bg-primary);
+}
+
+/* Features grid layout */
+.features-grid {
+    /* Grid with 3 columns */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Gap between cards */
+    gap: var(--spacing-lg);
+}
+
+/* Feature card styling */
+.feature-card {
+    /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    /* Padding */
+    padding: var(--spacing-xl);
+    /* Border radius */
+    border-radius: var(--radius-lg);
+    /* Border */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Text alignment */
+    text-align: center;
+    /* Smooth transition */
+    transition: var(--transition);
+    /* Shadow */
+    box-shadow: var(--shadow-md);
+}
+
+/* Dark mode feature card */
+body.dark-mode .feature-card {
+    background: rgba(45, 55, 72, 0.7);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Feature card hover effect */
+.feature-card:hover {
+    /* Move up on hover */
+    transform: translateY(-10px);
+    /* Increase shadow */
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+}
+
+/* Card icon styling */
+.card-icon {
+    /* Size */
+    width: 70px;
+    height: 70px;
+    /* Center align */
+    margin: 0 auto var(--spacing-lg);
+    /* Flex for centering icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Gradient background */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Border radius for circle */
+    border-radius: 50%;
+    /* Icon color */
+    color: white;
+    /* Font size */
+    font-size: 1.8rem;
+    /* Animation */
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Feature card heading */
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Feature card paragraph */
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ==================== SERVICES SECTION ==================== */
+/* Services section styling */
+.services {
+    /* Padding */
+    padding: var(--spacing-xl) 0;
+    /* Background gradient */
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+}
+
+/* Services grid */
+.services-grid {
+    /* Grid with 3 columns */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Gap between cards */
+    gap: var(--spacing-lg);
+}
+
+/* Service card styling */
+.service-card {
+    /* Padding */
+    padding: var(--spacing-xl);
+    /* Background */
+    background: var(--bg-primary);
+    /* Border radius */
+    border-radius: var(--radius-lg);
+    /* Shadow */
+    box-shadow: var(--shadow-md);
+    /* Smooth transition */
+    transition: var(--transition);
+    /* Relative position */
+    position: relative;
+    /* Border for glassmorphism */
+    border: 1px solid var(--border-primary);
+    /* Overflow for effect */
+    overflow: hidden;
+}
+
+/* Service card before element (gradient overlay) */
+.service-card::before {
+    /* Position */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    /* Gradient background */
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1));
+    /* Smooth transition */
+    transition: left 0.5s ease;
+}
+
+/* Service card hover effect */
+.service-card:hover::before {
+    left: 100%;
+}
+
+/* Service card hover */
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.15);
+}
+
+/* Service number styling */
+.service-number {
+    /* Font size */
+    font-size: 3rem;
+    /* Font weight */
+    font-weight: 700;
+    /* Gradient text */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Opacity */
+    opacity: 0.3;
+    /* Margin bottom */
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Service card heading */
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Service card description */
+.service-card p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+/* Learn more link */
+.learn-more {
+    /* Display inline-flex */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Color */
+    color: var(--primary-color);
+    /* Text decoration */
+    text-decoration: none;
+    /* Font weight */
+    font-weight: 600;
+    /* Transition */
+    transition: var(--transition);
+}
+
+/* Learn more hover */
+.learn-more:hover {
+    gap: 1rem;
+}
+
+/* ==================== TESTIMONIALS SECTION ==================== */
+/* Testimonials section styling */
+.testimonials {
+    /* Padding */
+    padding: var(--spacing-xl) 0;
+    /* Background */
+    background-color: var(--bg-primary);
+}
+
+/* Testimonials grid */
+.testimonials-grid {
+    /* Grid with 3 columns */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Gap between cards */
+    gap: var(--spacing-lg);
+}
+
+/* Testimonial card styling */
+.testimonial-card {
+    /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    /* Padding */
+    padding: var(--spacing-lg);
+    /* Border radius */
+    border-radius: var(--radius-lg);
+    /* Border */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Shadow */
+    box-shadow: var(--shadow-md);
+    /* Transition */
+    transition: var(--transition);
+}
+
+/* Dark mode testimonial card */
+body.dark-mode .testimonial-card {
+    background: rgba(45, 55, 72, 0.7);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Testimonial card hover */
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.2);
+}
+
+/* Stars styling */
+.stars {
+    /* Flex layout */
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Individual star */
+.stars i {
+    /* Color */
+    color: #fbbf24;
+    /* Font size */
+    font-size: 0.9rem;
+}
+
+/* Testimonial text */
+.testimonial-text {
+    /* Font size and style */
+    font-style: italic;
+    /* Color */
+    color: var(--text-secondary);
+    /* Margin bottom */
+    margin-bottom: var(--spacing-lg);
+    /* Line height */
+    line-height: 1.8;
+}
+
+/* Client info styling */
+.client-info {
+    /* Flex layout */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+/* Client avatar */
+.client-avatar {
+    /* Size */
+    width: 50px;
+    height: 50px;
+    /* Flex for centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Background gradient */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Border radius for circle */
+    border-radius: 50%;
+    /* Color */
+    color: white;
+    /* Font size */
+    font-size: 1.5rem;
+}
+
+/* Client name */
+.client-info h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Client position */
+.client-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ==================== CONTACT SECTION ==================== */
+/* Contact section styling */
+.contact {
+    /* Padding */
+    padding: var(--spacing-xl) 0;
+    /* Background gradient */
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+}
+
+/* Contact wrapper */
+.contact-wrapper {
+    /* Grid layout */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    /* Align items */
+    align-items: start;
+}
+
+/* Contact form styling */
+.contact-form {
+    /* Background */
+    background: var(--bg-primary);
+    /* Padding */
+    padding: var(--spacing-xl);
+    /* Border radius */
+    border-radius: var(--radius-lg);
+    /* Shadow */
+    box-shadow: var(--shadow-md);
+    /* Border */
+    border: 1px solid var(--border-primary);
+}
+
+/* Form group styling */
+.form-group {
+    /* Margin bottom */
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Form label */
+.form-group label {
+    /* Display block */
+    display: block;
+    /* Margin bottom */
+    margin-bottom: var(--spacing-sm);
+    /* Font weight */
+    font-weight: 600;
+    /* Color */
+    color: var(--text-primary);
+}
+
+/* Form inputs and textarea */
+.form-group input,
+.form-group textarea {
+    /* Width */
+    width: 100%;
+    /* Padding */
+    padding: 0.75rem 1rem;
+    /* Border */
+    border: 2px solid var(--border-primary);
+    /* Border radius */
+    border-radius: var(--radius-md);
+    /* Background */
+    background-color: var(--bg-primary);
+    /* Text color */
+    color: var(--text-primary);
+    /* Font family */
+    font-family: 'Poppins', sans-serif;
+    /* Transition */
+    transition: var(--transition);
+}
+
+/* Focus state for inputs */
+.form-group input:focus,
+.form-group textarea:focus {
+    /* Remove default outline */
+    outline: none;
+    /* Add border color on focus */
+    border-color: var(--primary-color);
+    /* Add shadow on focus */
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Contact info container */
+.contact-info {
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Info card styling */
+.info-card {
+    /* Background */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    /* Padding */
+    padding: var(--spacing-lg);
+    /* Border radius */
+    border-radius: var(--radius-lg);
+    /* Border */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Text alignment */
+    text-align: center;
+    /* Transition */
+    transition: var(--transition);
+}
+
+/* Dark mode info card */
+body.dark-mode .info-card {
+    background: rgba(45, 55, 72, 0.7);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Info card hover */
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Info icon styling */
+.info-icon {
+    /* Size */
+    width: 60px;
+    height: 60px;
+    /* Margin */
+    margin: 0 auto var(--spacing-md);
+    /* Flex for centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Background gradient */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Border radius */
+    border-radius: 50%;
+    /* Color */
+    color: white;
+    /* Font size */
+    font-size: 1.5rem;
+}
+
+/* Info card heading */
+.info-card h4 {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Info card text */
+.info-card p {
+    color: var(--text-secondary);
+}
+
+/* ==================== FOOTER SECTION ==================== */
+/* Footer styling */
+.footer {
+    /* Background gradient */
+    background: linear-gradient(135deg, var(--bg-dark), var(--bg-dark-secondary));
+    /* Text color (always dark in footer) */
+    color: var(--text-dark);
+    /* Padding */
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+/* Footer content wrapper */
+.footer-content {
+    /* Grid layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Gap between sections */
+    gap: var(--spacing-xl);
+    /* Margin bottom */
+    margin-bottom: var(--spacing-lg);
+    /* Border bottom */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Padding bottom */
+    padding-bottom: var(--spacing-lg);
+}
+
+/* Individual footer section */
+.footer-section {
+    /* Padding */
+    padding: 0;
+}
+
+/* Footer section heading */
+.footer-section h3,
+.footer-section h4 {
+    /* Margin bottom */
+    margin-bottom: var(--spacing-md);
+    /* Color */
+    color: white;
+}
+
+/* Footer section text */
+.footer-section p {
+    /* Color */
+    color: rgba(255, 255, 255, 0.7);
+    /* Line height */
+    line-height: 1.8;
+}
+
+/* Footer links list */
+.footer-section ul {
+    /* Remove list styling */
+    list-style: none;
+}
+
+/* Footer links */
+.footer-section ul li {
+    /* Margin bottom */
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Footer links styling */
+.footer-section a {
+    /* Text decoration */
+    text-decoration: none;
+    /* Color */
+    color: rgba(255, 255, 255, 0.7);
+    /* Transition */
+    transition: var(--transition);
+}
+
+/* Footer links hover */
+.footer-section a:hover {
+    color: var(--accent-color);
+}
+
+/* Social links styling */
+.social-links {
+    /* Flex layout */
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+/* Individual social link */
+.social-links a {
+    /* Size */
+    width: 40px;
+    height: 40px;
+    /* Flex for centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Background */
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(240, 147, 251, 0.2));
+    /* Border radius */
+    border-radius: 50%;
+    /* Transition */
+    transition: var(--transition);
+}
+
+/* Social link hover */
+.social-links a:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    transform: translateY(-3px);
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    /* Text alignment */
+    text-align: center;
+    /* Color */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==================== ANIMATIONS ==================== */
+/* Fade in and slide up animation for hero content */
+@keyframes fadeInUp {
+    from {
+        /* Start with transparency and lower position */
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        /* End with full opacity and normal position */
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating animation for decorative elements */
+@keyframes float {
+    0%, 100% {
+        /* Start and end position */
+        transform: translateY(0px);
+    }
+    50% {
+        /* Middle position (floating effect) */
+        transform: translateY(-20px);
+    }
+}
+
+/* Pulse animation for icons */
+@keyframes pulse {
+    0%, 100% {
+        /* Normal state */
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+    }
+    50% {
+        /* Pulse state */
+        box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+    }
+}
+
+/* ==================== MOBILE RESPONSIVE DESIGN ==================== */
+/* Tablet screens (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Navbar menu */
+    .nav-menu {
+        gap: var(--spacing-md);
+    }
+    
+    /* Hero title */
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    /* Hero subtitle */
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Section title */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* Features grid - 2 columns */
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    /* Services grid - 2 columns */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Contact wrapper - stack vertically */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Container padding */
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    /* Navbar container */
+    .navbar-container {
+        padding: 1rem var(--spacing-md);
+    }
+    
+    /* Hero section padding */
+    .hero {
+        padding: 80px 0 60px;
+    }
+    
+    /* Hero title */
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    /* Hero buttons - stack vertically */
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    /* Section padding */
+    .features,
+    .services,
+    .testimonials,
+    .contact {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    /* Feature card padding */
+    .feature-card,
+    .testimonial-card,
+    .service-card,
+    .contact-form,
+    .info-card {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Footer grid - single column */
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== PRINT STYLES ==================== */
+/* Optimize for printing */
+@media print {
+    /* Hide navbar */
+    .navbar,
+    .theme-toggle {
+        display: none;
+    }
+    
+    /* Adjust spacing for print */
+    section {
+        page-break-inside: avoid;
+    }
+}

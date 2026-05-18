@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "total_products": 5,
+    "scraped_at": "2026-05-17 10:30:15",
+    "scraping_tool": "Web Scraper v1.0"
+  },
+  "products": [
+    {
+      "title": "Wireless Bluetooth Headphones",
+      "price": "$49.99",
+      "rating": "4.5/5",
+      "link": "https://example.com/product1"
+    },
+    {
+      "title": "USB-C Charging Cable 2-Pack",
+      "price": "$15.99",
+      "rating": "4.8/5",
+      "link": "https://example.com/product2"
+    },
+    {
+      "title": "Phone Screen Protector 3-Pack",
+      "price": "$9.99",
+      "rating": "4.3/5",
+      "link": "https://example.com/product3"
+    },
+    {
+      "title": "Portable Power Bank 20000mAh",
+      "price": "$34.99",
+      "rating": "4.6/5",
+      "link": "https://example.com/product4"
+    },
+    {
+      "title": "Phone Case with Stand",
+      "price": "$12.99",
+      "rating": "4.4/5",
+      "link": "https://example.com/product5"
+    }
+  ]
+}
